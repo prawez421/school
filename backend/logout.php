@@ -4,6 +4,6 @@ session_start();
 session_unset();
 session_destroy();
 
-header("Location: student-login.php");
+header("Location:../components/login.php");
 exit();
 ?>
