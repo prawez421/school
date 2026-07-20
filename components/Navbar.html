@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <nav class="fixed top-0 left-0 w-full bg-blue-900 shadow-lg z-50">
+
+    <div class="max-w-7xl mx-auto px-4">
+
+      <div class="flex justify-between items-center h-18">
+
+        <!-- Logo -->
+
+        <div class="flex items-center gap-3">
+
+          <img
+            src="https://media.istockphoto.com/id/465397422/photo/black-graduation-cap-on-white.jpg?s=612x612&w=0&k=20&c=5-vBEL4bH3JtMoAkJiCRIDBU14ix-preJOqzfQaFdGI="
+            class="h-10 w-10 rounded-full">
+
+          <a href="index.html" class="text-white font-bold text-lg">
+            Alibros Public School
+          </a>
+
+        </div>
+
+        <!-- Desktop Menu -->
+
+        <ul class="hidden md:flex gap-6 text-white">
+
+          <li><a class="nav-link hover:text-yellow-300" href="index.html">Home</a></li>
+
+          <li><a class="nav-link hover:text-yellow-300" href="about.html">About</a></li>
+
+          <li><a class="nav-link hover:text-yellow-300" href="academics.html">Academics</a></li>
+
+          <li><a class="nav-link hover:text-yellow-300" href="admission.html">Admission</a></li>
+
+          <li><a class="nav-link hover:text-yellow-300" href="gallery.html">Gallery</a></li>
+
+          <li><a class="nav-link hover:text-yellow-300" href="contact.html">Contact</a></li>
+
+        </ul>
+
+        <div class="hidden md:flex gap-3">
+
+          <a href="singUp/sing.html" class="bg-yellow-400 px-4 py-2 rounded-lg font-semibold cursor-pointer text-blue-900">
+            Sign Up
+          </a>
+          <a href="components/login.php" class="bg-green-400 px-4 py-2 rounded-lg font-semibold cursor-pointer text-blue-900">
+            Login
+          </a>
+
+         
+
+        </div>
+
+        <div class="md:hidden text-white text-3xl cursor-pointer">
+
+          <i id="menuopen" class="ri-menu-line"></i>
+
+          <i id="menuclose" class="ri-close-line hidden"></i>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Mobile Menu -->
+
+    <div id="mobileMenu" class="hidden bg-blue-800">
+
+      <ul class="text-white flex flex-col items-center">
+
+        <li><a href="index.html" class="nav-link block py-3">Home</a></li>
+
+        <li><a href="about.html" class="nav-link block py-3">About</a></li>
+
+        <li><a href="academics.html" class="nav-link block py-3">Academics</a></li>
+
+        <li><a href="admission.html" class="nav-link block py-3">Admission</a></li>
+
+        <li><a href="gallery.html" class="nav-link block py-3">Gallery</a></li>
+
+        <li><a href="contact.html" class="nav-link block py-3">Contact</a></li>
+
+        <li class="py-3 flex flex-col gap-3">
+
+          <a href="../singUp/sing.html" class="bg-yellow-400 px-4 py-2 rounded-lg text-blue-900 font-bold">
+            Sign Up
+          </a>
+
+          <a href="components/login.php" class="bg-green-400 px-4 py-2 rounded-lg text-blue-900 font-bold">
+            Login
+          </a>
+
+        </li>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+  <!-- LOGIN Popup MODAL -->
+
+  
+
+</body>
+
+</html>
