@@ -1,55 +1,52 @@
 document.addEventListener("DOMContentLoaded", () => {
-
     const form = document.querySelector("form");
     const usernameError = document.getElementById("usernameError");
     const passwordError = document.getElementById("passwordError");
 
-    // Error Toast
+    // Check URL Parameters for Backend Error Message
     const params = new URLSearchParams(window.location.search);
-
     if (params.get("error") === "1") {
         showToast("❌ Invalid Username or Password", "error");
     }
 
-    form.addEventListener("submit", function (e) {
+    // Client side Validation before Submit
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            const username = document.querySelector('input[name="UserName"]').value.trim();
+            const password = document.querySelector('input[name="Password"]').value.trim();
 
-        e.preventDefault();
+            usernameError.classList.add("hidden");
+            passwordError.classList.add("hidden");
 
-        const username = document.querySelector('input[name="UserName"]').value.trim();
-        const password = document.querySelector('input[name="Password"]').value.trim();
+            let isValid = true;
 
-        usernameError.classList.add("hidden");
-        passwordError.classList.add("hidden");
+            if (username === "") {
+                usernameError.textContent = "Username is required.";
+                usernameError.classList.remove("hidden");
+                isValid = false;
+            }
 
-        let isValid = true;
+            if (password === "") {
+                passwordError.textContent = "Password is required.";
+                passwordError.classList.remove("hidden");
+                isValid = false;
+            }
 
-        if (username === "") {
-            usernameError.textContent = "Username is required.";
-            usernameError.classList.remove("hidden");
-            isValid = false;
-        }
-
-        if (password === "") {
-            passwordError.textContent = "Password is required.";
-            passwordError.classList.remove("hidden");
-            isValid = false;
-        }
-
-        if (!isValid) return;
-
-        form.submit();
-    });
-
+            if (!isValid) {
+                e.preventDefault(); // Stop Form Submit
+            }
+        });
+    }
 });
 
+// Toast Function
 function showToast(message, type = "success") {
-
     const toast = document.getElementById("toast");
+    if (!toast) return;
 
     toast.textContent = message;
 
     toast.classList.remove("bg-green-600", "bg-red-600");
-
     if (type === "success") {
         toast.classList.add("bg-green-600");
     } else {
@@ -62,11 +59,11 @@ function showToast(message, type = "success") {
     setTimeout(() => {
         toast.classList.remove("translate-x-0", "opacity-100");
         toast.classList.add("translate-x-full", "opacity-0");
-    }, 2000);
+    }, 3000);
 }
 
+// Password Eye Toggle
 function togglePassword() {
-
     const password = document.getElementById("loginPassword");
     const eyeIcon = document.getElementById("eyeIcon");
 

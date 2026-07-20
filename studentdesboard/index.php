@@ -539,7 +539,37 @@ Parent meeting on Sunday
 </div>
 
 
+<!-- Toast Component -->
+<div id="toast"
+    class="fixed top-5 right-5 bg-green-600 text-white px-5 py-3 rounded-lg shadow-lg opacity-0 translate-x-full transition-all duration-500 z-50">
+</div>
 
+<script>
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+
+    toast.classList.remove("opacity-0", "translate-x-full");
+    toast.classList.add("opacity-100", "translate-x-0");
+
+    setTimeout(() => {
+        toast.classList.remove("opacity-100", "translate-x-0");
+        toast.classList.add("opacity-0", "translate-x-full");
+    }, 3000);
+}
+</script>
+
+<?php if(isset($_SESSION['success'])): ?>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        showToast("<?= $_SESSION['success']; ?>");
+    });
+</script>
+<?php 
+    // Message ek baar dikhne ke baad clear karne ke liye
+    unset($_SESSION['success']); 
+endif; 
+?>
 </body>
 
 </html>
